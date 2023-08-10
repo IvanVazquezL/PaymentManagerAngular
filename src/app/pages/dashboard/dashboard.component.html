@@ -1,0 +1,23 @@
+<input type="file" id="fileInput" (change)="onFileSelected($event)" accept=".pdf">
+<button type="button" (click)="downloadFile()">Descargar</button>
+<table>
+    <tr>
+      <th>Fecha de Pago</th>
+      <th>Fecha Inicio</th>
+      <th>Fecha Fin</th>
+      <th>Tipo de Recibo</th>
+      <th>Total</th>
+    </tr>
+    <tr *ngFor="let bill of bills">
+      <td>{{bill.fechaDePago | date:'dd/MM/yyyy'}}</td>
+      <td>{{bill.inicioDelPeriodo | date:'dd/MM/yyyy'}}</td>
+      <td>{{bill.finDelPeriodo | date:'dd/MM/yyyy'}}</td>
+      <td>{{bill.tipoDeRecibo}}</td>
+      <td>{{bill.total | number:'1.0':'en-US'}}</td>
+      <td><a routerLink="bill/{{bill.uid}}">Detalle</a></td>
+    </tr>
+  </table>
+  <p>Total: {{total | number:'1.0':'en-US'}}</p>
+  <p>Total Efectivo: {{totalEfectivo | number:'1.0':'en-US'}}</p>
+  <p>Total Bonos: {{totalBonos | number:'1.0':'en-US'}}</p>
+
