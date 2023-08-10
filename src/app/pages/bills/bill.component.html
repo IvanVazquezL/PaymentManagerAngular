@@ -1,0 +1,38 @@
+<h1>{{tipoDeRecibo}}</h1>
+<h1>Periodo: {{inicioDelPeriodo}} - {{finDelPeriodo}}</h1>
+<h1>Fecha De Pago: {{fechaDePago}}</h1>
+
+<div>
+    <h1>Percepciones</h1>
+    <table>
+        <tr>
+            <th>Concepto</th>
+            <th>Total</th>
+        </tr>
+        <tr *ngFor="let percepcion of percepciones">
+            <td>{{percepcion.name}}</td>
+            <td>{{percepcion.value | number:'1.0':'en-US'}}</td>
+        </tr>
+    </table>
+    <p>Total Percepciones mas otros Pagos: {{subtotal | number:'1.0':'en-US'}}</p>
+</div>
+<div>
+    <h1>Deducciones</h1>
+    <table></table>
+    <tr>
+        <th>Concepto</th>
+        <th>Total</th>
+    </tr>
+    <tr *ngFor="let deduccion of deducciones">
+        <td>{{deduccion.name}}</td>
+        <td>{{deduccion.value | number:'1.0':'en-US'}}</td>
+    </tr>
+</div>
+<div>
+    <h4>Subtotal: {{subtotal | number:'1.0':'en-US'}}</h4>
+    <h4>Descuentos: {{descuentos | number:'1.0':'en-US'}}</h4>
+    <h4>Retenciones: {{retenciones | number:'1.0':'en-US'}}</h4>
+    <h4>Total del Recibo: {{totalRecibo | number:'1.0':'en-US'}}</h4>
+    <h4>Neto del Recibo: {{netoDelRecibo | number:'1.0':'en-US'}}</h4>
+
+</div>
