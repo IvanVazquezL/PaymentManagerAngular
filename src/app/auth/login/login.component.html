@@ -1,0 +1,20 @@
+<div class="container">
+    <div class="card">
+      <form 
+        autocomplete="off"
+        [formGroup]="loginForm"
+        (ngSubmit)="login()"
+        id="loginForm">
+            <h3>Login</h3>
+            <input 
+                type="text" 
+                placeholder="Username"
+                formControlName="username">
+            <input 
+                type="password" 
+                placeholder="Password"
+                formControlName="password">
+            <button type="submit">Login</button>
+      </form>
+    </div>
+  </div>
